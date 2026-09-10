@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全女格斗-女性格斗游戏角色、玩法与对战入门指南</title>
+<meta name="description" content="全女格斗指以女性格斗角色为主体的格斗游戏与对战玩法。本页整理全女格斗的概念、常见作品、角色类型、操作入门、对战思路与常见问题，帮助新手快速了解这一题材。">
+<meta name="keywords" content="全女格斗,女性格斗游戏,格斗游戏角色,全女格斗玩法,格斗游戏入门">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-deep: #14101c;
+  --bg-panel: #1e1830;
+  --bg-card: #26203c;
+  --line: #3a3255;
+  --pink: #ff4f8b;
+  --pink-soft: #ff8ab5;
+  --violet: #8b5cf6;
+  --cyan: #3ddad7;
+  --text: #ece9f5;
+  --text-dim: #a79fc4;
+}
+
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg-deep);
+  color: var(--text);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- 顶部 ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(20, 16, 28, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  height: 66px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.brand-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: linear-gradient(135deg, var(--pink), var(--violet));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: #fff;
+  box-shadow: 0 0 14px rgba(255, 79, 139, 0.45);
+}
+
+.brand span.accent {
+  color: var(--pink-soft);
+}
+
+.main-nav {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  color: var(--text-dim);
+  transition: all 0.2s ease;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: #fff;
+  background: var(--bg-card);
+}
+
+.nav-toggle {
+  display: none;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* ---------- 首屏 ---------- */
+.hero {
+  position: relative;
+  padding: 62px 0 54px;
+  background:
+    radial-gradient(900px 380px at 12% -10%, rgba(255, 79, 139, 0.22), transparent 65%),
+    radial-gradient(760px 340px at 92% 8%, rgba(139, 92, 246, 0.24), transparent 68%),
+    linear-gradient(180deg, #191426, #14101c);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 44px;
+  align-items: center;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  color: var(--cyan);
+  border: 1px solid rgba(61, 218, 215, 0.4);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(100deg, var(--pink), var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p.lead {
+  font-size: 16.5px;
+  color: var(--text-dim);
+  max-width: 620px;
+  margin-bottom: 26px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(120deg, var(--pink), var(--violet));
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(255, 79, 139, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 79, 139, 0.42);
+}
+
+.btn-ghost {
+  border: 1px solid var(--line);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.btn-ghost:hover {
+  border-color: var(--pink-soft);
+  color: var(--pink-soft);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 30px;
+  margin-top: 34px;
+  flex-wrap: wrap;
+}
+
+.hero-stats div strong {
+  display: block;
+  font-size: 22px;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.hero-stats div span {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.hero-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 26px;
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.35);
+}
+
+.hero-panel h2 {
+  font-size: 17px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.pick-list {
+  list-style: none;
+}
+
+.pick-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(58, 50, 85, 0.55);
+  font-size: 14.5px;
+}
+
+.pick-list li:last-child {
+  border-bottom: none;
+}
+
+.pick-num {
+  flex: 0 0 24px;
+  height: 24px;
+  border-radius: 7px;
+  background: rgba(255, 79, 139, 0.14);
+  color: var(--pink-soft);
+  font-size: 12.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+}
+
+.pick-list b {
+  display: block;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+
+.pick-list small {
+  color: var(--text-dim);
+  font-size: 13px;
+}
+
+/* ---------- 通用区块 ---------- */
+.section {
+  padding: 58px 0;
+}
+
+.section-alt {
+  background: #171226;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.section-head h2 {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-left: 16px;
+}
+
+.section-head h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 5px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--pink), var(--violet));
+}
+
+.section-head p {
+  color: var(--text-dim);
+  font-size: 14.5px;
+  max-width: 560px;
+}
+
+/* ---------- 概念说明 ---------- */
+.intro-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.intro-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.intro-card:hover {
+  border-color: var(--pink-soft);
+  transform: translateY(-3px);
+}
+
+.intro-card h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.intro-card p {
+  font-size: 14.5px;
+  color: var(--text-dim);
+}
+
+/* ---------- 分类标签 ---------- */
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.tag {
+  font-size: 13.5px;
+  padding: 6px 15px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--text-dim);
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.tag:hover,
+.tag.active {
+  color: #fff;
+  border-color: var(--pink);
+  background: rgba(255, 79, 139, 0.16);
+}
+
+/* ---------- 角色卡 ---------- */
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.char-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.char-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--violet);
+}
+
+.char-thumb {
+  height: 108px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.t1 { background: linear-gradient(135deg, #ff4f8b, #8b5cf6); }
+.t2 { background: linear-gradient(135deg, #3ddad7, #2b6cb0); }
+.t3 { background: linear-gradient(135deg, #f6a23c, #d9416c); }
+.t4 { background: linear-gradient(135deg, #8b5cf6, #3ddad7); }
+.t5 { background: linear-gradient(135deg, #d9416c, #6b2fa0); }
+.t6 { background: linear-gradient(135deg, #2b6cb0, #ff4f8b); }
+.t7 { background: linear-gradient(135deg, #e05fa0, #f6a23c); }
+.t8 { background: linear-gradient(135deg, #4a3d9e, #3ddad7); }
+
+.char-body {
+  padding: 16px 18px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.char-body h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.char-role {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--cyan);
+  border: 1px solid rgba(61, 218, 215, 0.35);
+  border-radius: 5px;
+  padding: 1px 8px;
+  margin-bottom: 10px;
+}
+
+.char-body p {
+  font-size: 13.5px;
+  color: var(--text-dim);
+  flex: 1;
+}
+
+.char-meta {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+  font-size: 12.5px;
+  color: var(--text-dim);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ---------- 玩法步骤 ---------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  counter-reset: step;
+}
+
+.step {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px 22px;
+  position: relative;
+}
+
+.step::before {
+  counter-increment: step;
+  content: "0" counter(step);
+  display: block;
+  font-size: 26px;
+  font-weight: 800;
+  color: rgba(255, 79, 139, 0.5);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.step h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.step p {
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+/* ---------- 对战思路 ---------- */
+.tips-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 34px;
+  align-items: start;
+}
+
+.tips-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tip {
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--pink);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+
+.tip h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.tip p {
+  font-size: 14.5px;
+  color: var(--text-dim);
+}
+
+.aside-box {
+  background: linear-gradient(160deg, #241c3c, #1b152c);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 26px;
+}
+
+.aside-box h3 {
+  font-size: 17px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.aside-box ul {
+  list-style: none;
+}
+
+.aside-box li {
+  font-size: 14px;
+  color: var(--text-dim);
+  padding: 9px 0 9px 20px;
+  position: relative;
+  border-bottom: 1px solid rgba(58, 50, 85, 0.5);
+}
+
+.aside-box li:last-child {
+  border-bottom: none;
+}
+
+.aside-box li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  font-size: 10px;
+  color: var(--violet);
+}
+
+/* ---------- 榜单表格 ---------- */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg-panel);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+thead th {
+  text-align: left;
+  font-size: 13.5px;
+  color: var(--text-dim);
+  font-weight: 600;
+  padding: 15px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+tbody td {
+  padding: 15px 20px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(58, 50, 85, 0.5);
+  color: var(--text-dim);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody td:first-child {
+  color: #fff;
+  font-weight: 600;
+}
+
+.rank-badge {
+  display: inline-block;
+  min-width: 24px;
+  text-align: center;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--pink-soft);
+  background: rgba(255, 79, 139, 0.14);
+  border-radius: 6px;
+  padding: 2px 6px;
+  margin-right: 10px;
+}
+
+/* ---------- FAQ ---------- */
+.faq {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 900px;
+}
+
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.faq-q {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 15.5px;
+  font-weight: 600;
+  font-family: inherit;
+  padding: 18px 22px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.faq-q::after {
+  content: "+";
+  font-size: 20px;
+  color: var(--pink-soft);
+  flex: 0 0 auto;
+  transition: transform 0.2s ease;
+}
+
+.faq-item.open .faq-q::after {
+  transform: rotate(45deg);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.28s ease;
+}
+
+.faq-a p {
+  padding: 0 22px 20px;
+  font-size: 14.5px;
+  color: var(--text-dim);
+}
+
+/* ---------- 页脚 ---------- */
+.site-footer {
+  background: #100c19;
+  border-top: 1px solid var(--line);
+  padding: 46px 0 26px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-top: 12px;
+  max-width: 320px;
+}
+
+.footer-col h4 {
+  font-size: 15px;
+  margin-bottom: 14px;
+  color: #fff;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin-bottom: 9px;
+}
+
+.footer-col a {
+  font-size: 14px;
+  color: var(--text-dim);
+  transition: color 0.2s ease;
+}
+
+.footer-col a:hover {
+  color: var(--pink-soft);
+}
+
+.copyright {
+  border-top: 1px solid var(--line);
+  padding-top: 22px;
+  font-size: 13px;
+  color: var(--text-dim);
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ---------- 响应式 ---------- */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+  .char-grid { grid-template-columns: repeat(3, 1fr); }
+  .intro-grid { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .tips-layout { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 66px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #191426;
+    border-bottom: 1px solid var(--line);
+    padding: 12px 16px 18px;
+  }
+  .main-nav.open { display: flex; }
+  .nav-toggle { display: block; }
+  .hero { padding: 44px 0 40px; }
+  .hero h1 { font-size: 31px; }
+  .hero p.lead { font-size: 15.5px; }
+  .section { padding: 44px 0; }
+  .section-head h2 { font-size: 22px; }
+  .char-grid { grid-template-columns: repeat(2, 1fr); }
+  .intro-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .hero-stats { gap: 22px; }
+}
+
+@media (max-width: 480px) {
+  .char-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 27px; }
+  .brand { font-size: 17px; }
+  .btn { padding: 11px 20px; font-size: 14px; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <div class="brand-mark">格</div>
+      <div>全女<span class="accent">格斗</span></div>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="展开导航">菜单</button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#concept" class="active">题材解读</a>
+      <a href="#characters">角色类型</a>
+      <a href="#howto">上手步骤</a>
+      <a href="#battle">对战思路</a>
+      <a href="#ranking">作品参考</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hero-tag">女性角色 · 格斗游戏 · 对战入门</span>
+        <h1>全女格斗：<em>女性角色为主体的格斗游戏</em>该怎么看、怎么玩</h1>
+        <p class="lead">
+          全女格斗并不是某一款固定游戏的名字，而是玩家对“以女性格斗角色为主要阵容或全部阵容”的一类格斗游戏与对战玩法的统称。它既包括官方作品中女性角色占比较高的系列，也包括以女性角色为核心的 MOD、同人作品与线上对战圈子。本页从题材概念、角色类型、操作入门到对战思路，帮你把这一题材看清楚。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#howto">从零开始上手</a>
+          <a class="btn btn-ghost" href="#concept">先了解题材</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <strong>3 类</strong>
+            <span>常见阵容构成</span>
+          </div>
+          <div>
+            <strong>4 步</strong>
+            <span>新手入门路径</span>
+          </div>
+          <div>
+            <strong>6 条</strong>
+            <span>对战核心思路</span>
+          </div>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <h2>新手最先要弄清的几件事</h2>
+        <ol class="pick-list">
+          <li>
+            <span class="pick-num">1</span>
+            <span>
+              <b>它不是单一作品</b>
+              <small>而是按“角色阵容”划分的一类题材统称。</small>
+            </span>
+          </li>
+          <li>
+            <span class="pick-num">2</span>
+            <span>
+              <b>角色数量不等于强度</b>
+              <small>阵容好看与角色好用是两回事，需要分开判断。</small>
+            </span>
+          </li>
+          <li>
+            <span class="pick-num">3</span>
+            <span>
+              <b>先选一个主力角色</b>
+              <small>集中练习一个角色，比每个都试一遍进步更快。</small>
+            </span>
+          </li>
+          <li>
+            <span class="pick-num">4</span>
+            <span>
+              <b>对局录像比连招更重要</b>
+              <small>看懂自己为什么输，比记住一套连招更有价值。</small>
+            </span>
+          </li>
+        </ol>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 题材解读 -->
+  <section class="section" id="concept">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>“全女格斗”到底指什么</h2>
+        <p>这个词在玩家圈子里用法比较松散，理解它的几种常见含义，能避免在查找资料时找错方向。</p>
+      </div>
+      <div class="intro-grid">
+        <article class="intro-card">
+          <h3>阵容型：女性角色占多数</h3>
+          <p>指某款格斗游戏的可用角色中，女性角色占比明显偏高，甚至构成全部可选阵容。这类作品通常会把角色造型、动作设计与演出效果作为重要卖点，玩家在选择时也更看重角色的手感与风格差异。</p>
+        </article>
+        <article class="intro-card">
+          <h3>玩法型：限定女性角色的对战规则</h3>
+          <p>在一些角色众多的格斗游戏中，玩家会自发约定“只用女性角色对战”，形成一种社区内的玩法规则。这类玩法不改变游戏本体，但会明显改变对局节奏与角色选择策略。</p>
+        </article>
+        <article class="intro-card">
+          <h3>同人型：以女性角色为核心的二次创作</h3>
+          <p>还有一部分内容来自同人创作与角色替换类作品，它们通常基于已有格斗游戏引擎制作，在角色、招式与美术上做重新设计。这类作品质量差异较大，需要留意来源与版本信息。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 角色类型 -->
+  <section class="section section-alt" id="characters">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>女性格斗角色的常见类型</h2>
+        <p>格斗游戏里的角色定位通常比外形更重要。下面按常见的战斗风格分类，帮你判断自己更适合哪一类角色。</p>
+      </div>
+
+      <div class="tag-row" id="tagRow">
+        <span class="tag active" data-filter="all">全部</span>
+        <span class="tag" data-filter="rush">近身压制</span>
+        <span class="tag" data-filter="zone">中远距离</span>
+        <span class="tag" data-filter="tech">技巧连段</span>
+        <span class="tag" data-filter="power">力量型</span>
+      </div>
+
+      <div class="char-grid" id="charGrid">
+        <article class="char-card" data-type="rush">
+          <div class="char-thumb t1">突</div>
+          <div class="char-body">
+            <h3>突进型角色</h3>
+            <span class="char-role">近身压制</span>
+            <p>依靠快速位移与贴身压制取得优势，需要较好的节奏感和连续判断能力。上手门槛中等，但一旦掌握节奏，压制力很强。</p>
+            <div class="char-meta"><span>距离：近</span><span>节奏：快</span></div>
+          </div>
+        </article>
+
+        <article class="char-card" data-type="zone">
+          <div class="char-thumb t2">远</div>
+          <div class="char-body">
+            <h3>牵制型角色</h3>
+            <span class="char-role">中远距离</span>
+            <p>通过投射物、长判定招式控制空间，逼迫对手按自己的节奏行动。适合喜欢观察和预判的玩家，但被贴身时较被动。</p>
+            <div class="char-meta"><span>距离：远</span><span>节奏：稳</span></div>
+          </div>
+        </article>
+
+        <article class="char-card" data-type="tech">
+          <div class="char-thumb t3">技</div>
+          <div class="char-body">
+            <h3>技巧连段型</h3>
+            <span class="char-role">技巧连段</span>
+            <p>以多段连招和高回报的确认能力见长，练习成本较高，需要熟悉帧数与取消时机。熟练掌握后，单次命中就能打出可观伤害。</p>
+            <div class="char-meta"><span>距离：中</span><span>节奏：多变</span></div>
+          </div>
+        </article>
+
+        <article class="char-card" data-type="power">
+          <div class="char-thumb t4">力</div>
+          <div class="char-body">
+            <h3>力量型角色</h3>
+            <span class="char-role">力量型</span>
+            <p>单次攻击伤害高、判定范围大，但动作前摇较长。适合愿意耐心等待机会、用一两次关键命中改变局势的玩家。</p>
+            <div class="char-meta"><span>距离：中近</span><span>节奏：慢</span></div>
+          </div>
+        </article>
+
+        <article class="char-card" data-type="rush">
+          <div class="char-thumb t5">速</div>
+          <div class="char-body">
+            <h3>速度型角色</h3>
+            <span class="char-role">近身压制</span>
+            <p>移动与出招速度突出，靠频繁的位移和骚扰积累优势。容错相对较低，需要保持专注，避免被对手抓住一次大破绽。</p>
+            <div class="char-meta"><span>距离：近</span><span>节奏：极快</span></div>
+          </div>
+        </article>
+
+        <article class="char-card" data-type="zone">
+          <div class="char-thumb t6">守</div>
+          <div class="char-body">
+            <h3>防守反击型</h3>
+            <span class="char-role">中远距离</span>
+            <p>以格挡、反击和惩罚对手失误为核心思路，进攻手段相对有限，但防守体系扎实。适合喜欢后发制人的玩家。</p>
+            <div class="char-meta"><span>距离：中</span><span>节奏：稳</span></div>
+          </div>
+        </article>
+
+        <article class="char-card" data-type="tech">
+          <div class="char-thumb t7">变</div>
+          <div class="char-body">
+            <h3>姿态切换型</h3>
+            <span class="char-role">技巧连段</span>
+            <p>拥有两种以上战斗姿态，可在对局中切换以改变招式表。上限高、学习曲线陡，需要记忆不同姿态下的关键招式。</p>
+            <div class="char-meta"><span>距离：全距</span><span>节奏：多变</span></div>
+          </div>
+        </article>
+
+        <article class="char-card" data-type="power">
+          <div class="char-thumb t8">投</div>
+          <div class="char-body">
+            <h3>投技型角色</h3>
+            <span class="char-role">力量型</span>
+            <p>依靠投技与近身指令技打开局面，对距离判断要求高。面对喜欢龟缩防守的对手时往往能发挥作用。</p>
+            <div class="char-meta"><span>距离：贴身</span><span>节奏：中</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 上手步骤 -->
+  <section class="section" id="howto">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>从零开始上手的四个步骤</h2>
+        <p>格斗游戏的入门顺序会直接影响体验。按下面的顺序推进，比一上来就死记连招更容易坚持下来。</p>
+      </div>
+      <div class="steps">
+        <article class="step">
+          <h3>先确定平台与作品</h3>
+          <p>确认自己用的是电脑、主机还是手机，再选择对应的格斗游戏。不同平台的按键布局、网络环境和玩家群体差异较大，先定平台能少走弯路。</p>
+        </article>
+        <article class="step">
+          <h3>选定一个主力角色</h3>
+          <p>从上面几类角色里挑一个看着顺眼、操作不别扭的，先专注练它。频繁换角色会让肌肉记忆无法建立，是新手最常见的停滞原因。</p>
+        </article>
+        <article class="step">
+          <h3>练基础操作而非连招</h3>
+          <p>先把移动、跳跃、格挡、普通投和两三个基础招式练稳。这些基础动作覆盖了绝大多数对局场景，优先级高于华丽的连段。</p>
+        </article>
+        <article class="step">
+          <h3>打实战并复盘</h3>
+          <p>和真人或较高难度的电脑对战，重点观察自己在哪里被击中、为什么防不住。每局只针对一个问题做改进，进步会比盲目刷局更快。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 对战思路 -->
+  <section class="section section-alt" id="battle">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>对战思路：让角色优势真正发挥出来</h2>
+        <p>选定角色之后，真正决定胜负的往往是对距离、节奏和心理的判断，而不是招式表有多长。</p>
+      </div>
+      <div class="tips-layout">
+        <div class="tips-list">
+          <article class="tip">
+            <h3>先想清楚你的角色想打什么距离</h3>
+            <p>每个角色都有自己最舒服的作战距离。牵制型希望对手离得远，突进型希望尽快贴上去。对局中要有意识地把自己拉进舒适区，把对手推出他的舒适区。</p>
+          </article>
+          <article class="tip">
+            <h3>把防守当成主动选择</h3>
+            <p>格挡不是被动挨打，而是在等待对手露出破绽。稳定的防守能让对手急躁，而急躁的对手更容易做出可以被惩罚的动作。</p>
+          </article>
+          <article class="tip">
+            <h3>控制自己的出招欲望</h3>
+            <p>很多失误来自“想打一下”的冲动。在不确定能否命中的情况下，选择不出招往往比乱出招更安全，尤其是在血量领先的时候。</p>
+          </article>
+          <article class="tip">
+            <h3>记住对手的习惯而不是套路</h3>
+            <p>同一个对手在相同局面下往往会重复同样的选择。留意他跳的频率、起身时的动作，这些信息比背下十套连招更能帮你赢下对局。</p>
+          </article>
+          <article class="tip">
+            <h3>接受角色存在克制关系</h3>
+            <p>某些对局天然更难打，这是格斗游戏的常态。遇到不利对局时，目标可以调整为“少犯错、多拖时间”，而不是强行硬拼。</p>
+          </article>
+          <article class="tip">
+            <h3>保持稳定的练习节奏</h3>
+            <p>每天固定练一段时间，比偶尔长时间突击更有效。格斗游戏依赖反应和肌肉记忆，间断太久会明显影响手感。</p>
+          </article>
+        </div>
+        <aside class="aside-box">
+          <h3>容易被忽略的细节</h3>
+          <ul>
+            <li>训练模式里把帧数显示打开，能直观看到招式快慢</li>
+            <li>对局前先热身几分钟，手感差别很明显</li>
+            <li>网络对战时优先看延迟，延迟高时少做需要精确时机的操作</li>
+            <li>录像回放时重点看自己被打中的前两秒发生了什么</li>
+            <li>不同角色的起身速度不同，不要用同一套思路应对</li>
+            <li>角色外观好看可以作为选择理由，但强度判断要看实际对局表现</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 作品参考 -->
+  <section class="section" id="ranking">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>按需求选择方向的参考表</h2>
+        <p>不同玩家关注的点不一样。下表按常见需求整理选择方向，帮助你判断该从哪类作品入手，具体作品请以官方渠道信息为准。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>需求方向</th>
+              <th>适合人群</th>
+              <th>关注重点</th>
+              <th>注意事项</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="rank-badge">01</span>女性角色阵容丰富</td>
+              <td>喜欢收集和多角色尝试的玩家</td>
+              <td>可选角色数量、造型差异、招式风格区分度</td>
+              <td>角色多不代表都平衡，仍需以实战手感为准</td>
+            </tr>
+            <tr>
+              <td><span class="rank-badge">02</span>操作门槛较低</td>
+              <td>刚接触格斗游戏的新手</td>
+              <td>指令输入难度、是否有简化操作模式、教程完善度</td>
+              <td>简化操作不等于没有深度，进阶仍需练习</td>
+            </tr>
+            <tr>
+              <td><span class="rank-badge">03</span>线上对战活跃</td>
+              <td>希望长期和真人切磋的玩家</td>
+              <td>匹配速度、网络稳定性、是否有排位体系</td>
+              <td>玩家数量会随时间变化，建议先了解当前状态</td>
+            </tr>
+            <tr>
+              <td><span class="rank-badge">04</span>单机与本地对战</td>
+              <td>和朋友同屏娱乐为主</td>
+              <td>本地双人模式、剧情内容、上手友好度</td>
+              <td>本地模式与线上平衡性设计目标不同</td>
+            </tr>
+            <tr>
+              <td><span class="rank-badge">05</span>同人与二次创作</td>
+              <td>对特定角色或风格有偏好的玩家</td>
+              <td>作者更新情况、版本说明、社区反馈</td>
+              <td>来源与版本需自行核实，注意文件安全</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>常见问题</h2>
+        <p>关于全女格斗这个题材，新手问得比较多的几个问题。</p>
+      </div>
+      <div class="faq" id="faqList">
+        <div class="faq-item">
+          <button class="faq-q" type="button">全女格斗是一款具体的游戏吗？</button>
+          <div class="faq-a">
+            <p>不是。它更像是一个玩家圈子里形成的分类说法，用来指代女性角色占主体阵容的格斗游戏，或者限定只用女性角色对战的玩法规则。具体到某一款作品，还需要看它的官方名称和实际角色构成。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">没有格斗游戏基础，能直接玩吗？</button>
+          <div class="faq-a">
+            <p>可以。格斗游戏的基础操作并不多，移动、格挡、普通攻击和投技就覆盖了大部分场景。建议先从操作简化、教程完善的作品入手，把基础动作练稳之后再考虑连段和进阶技巧。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">女性角色在格斗游戏里通常更难上手吗？</button>
+          <div class="faq-a">
+            <p>没有这种规律。角色的上手难度取决于它的招式设计、移动速度和判定范围，与角色性别无关。同一个作品里既有操作简单的女性角色，也有学习成本很高的女性角色，选择时看具体定位更准确。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">只用女性角色对战会不会吃亏？</button>
+          <div class="faq-a">
+            <p>取决于作品的角色平衡设计。在角色数量较多的游戏里，女性角色往往覆盖了从近身到远距离的多种定位，通常能组成合理阵容。但个别对局可能存在克制关系，这属于格斗游戏的正常现象，可以通过调整打法来应对。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">想找同人向的全女格斗作品，要注意什么？</button>
+          <div class="faq-a">
+            <p>建议优先确认作品的发布来源、更新时间和版本说明，尽量从作者公开的渠道获取。同人作品的质量、完成度和安全性差异较大，下载和运行前留意文件格式与社区反馈，不要运行来源不明的可执行文件。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">练习多久才能打得像样？</button>
+          <div class="faq-a">
+            <p>没有统一答案，和练习频率、方法以及对手水平都有关系。一般来说，先专注一个角色，把基础操作和两三个关键招式练熟，就能在休闲对局中打得比较顺畅。之后想提升，重点会转向对局判断和复盘，而不是单纯增加练习时长。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <div class="brand-mark">格</div>
+          <div>全女<span class="accent">格斗</span></div>
+        </div>
+        <p>围绕女性格斗角色与对战玩法整理的概念解读、角色分类与入门参考，帮助新玩家更快理解这一题材并找到适合自己的方向。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#concept">题材解读</a></li>
+          <li><a href="#characters">角色类型</a></li>
+          <li><a href="#howto">上手步骤</a></li>
+          <li><a href="#battle">对战思路</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>入门参考</h4>
+        <ul>
+          <li><a href="#howto">基础操作顺序</a></li>
+          <li><a href="#battle">距离与节奏</a></li>
+          <li><a href="#ranking">选择方向对照</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>相关主题</h4>
+        <ul>
+          <li><a href="#characters">女性格斗角色</a></li>
+          <li><a href="#battle">格斗对战技巧</a></li>
+          <li><a href="#concept">同人创作说明</a></li>
+          <li><a href="#ranking">作品选择建议</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>本页内容为题材科普与入门参考，具体作品信息请以官方渠道为准。</span>
+      <span>全女格斗 · 内容整理</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // 移动端导航展开
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('mainNav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      nav.classList.toggle('open');
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        nav.classList.remove('open');
+      }
+    });
+  }
+
+  // 角色类型筛选
+  var tagRow = document.getElementById('tagRow');
+  var grid = document.getElementById('charGrid');
+  if (tagRow && grid) {
+    tagRow.addEventListener('click', function (e) {
+      var tag = e.target.closest('.tag');
+      if (!tag) return;
+      var filter = tag.getAttribute('data-filter');
+
+      var tags = tagRow.querySelectorAll('.tag');
+      for (var i = 0; i < tags.length; i++) {
+        tags[i].classList.remove('active');
+      }
+      tag.classList.add('active');
+
+      var cards = grid.querySelectorAll('.char-card');
+      for (var j = 0; j < cards.length; j++) {
+        var card = cards[j];
+        if (filter === 'all' || card.getAttribute('data-type') === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      }
+    });
+  }
+
+  // FAQ 折叠
+  var faqList = document.getElementById('faqList');
+  if (faqList) {
+    var questions = faqList.querySelectorAll('.faq-q');
+    for (var k = 0; k < questions.length; k++) {
+      questions[k].addEventListener('click', function () {
+        var item = this.parentNode;
+        var answer = item.querySelector('.faq-a');
+        var isOpen = item.classList.contains('open');
+
+        if (isOpen) {
+          item.classList.remove('open');
+          answer.style.maxHeight = null;
+        } else {
+          item.classList.add('open');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    }
+  }
+
+  // 导航高亮
+  var sections = document.querySelectorAll('main section[id]');
+  var navLinks = document.querySelectorAll('.main-nav a');
+  if (sections.length && navLinks.length && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.getAttribute('id');
+          for (var m = 0; m < navLinks.length; m++) {
+            navLinks[m].classList.toggle(
+              'active',
+              navLinks[m].getAttribute('href') === '#' + id
+            );
+          }
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    for (var n = 0; n < sections.length; n++) {
+      observer.observe(sections[n]);
+    }
+  }
+})();
+</script>
+
+</body>
+  </html>
