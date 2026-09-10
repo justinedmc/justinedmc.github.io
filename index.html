@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACG里番本子库无翼乌-二次元同人志与番剧资料索引指南</title>
+<meta name="description" content="ACG里番本子库无翼乌是一个面向二次元爱好者的资料索引页面，梳理同人志、番剧、漫画、画师与标签分类的查找方式，说明内容分级、来源辨别与使用注意事项，帮助访客更清晰地了解相关概念与检索思路。">
+<meta name="keywords" content="ACG里番本子库无翼乌,ACG本子库,同人志索引,二次元资料库,里番资料,本子分类,ACG资源整理">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#14121c;
+--bg2:#1b1826;
+--card:#221e30;
+--line:#332d45;
+--txt:#e8e4f2;
+--sub:#a49dbb;
+--pink:#ff6fa5;
+--purple:#9b6bff;
+--cyan:#4fd6d6;
+--radius:14px;
+}
+html{scroll-behavior:smooth}
+body{
+font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+background:var(--bg);
+color:var(--txt);
+line-height:1.75;
+font-size:15px;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+
+/* 顶部公告 */
+.topbar{
+background:linear-gradient(90deg,#2a1f3d,#3a2450);
+border-bottom:1px solid var(--line);
+font-size:13px;
+color:var(--sub);
+text-align:center;
+padding:8px 12px;
+}
+.topbar b{color:var(--pink)}
+
+/* 页眉 */
+header.site-head{
+position:sticky;top:0;z-index:50;
+background:rgba(20,18,28,.92);
+backdrop-filter:blur(10px);
+border-bottom:1px solid var(--line);
+}
+.head-inner{
+display:flex;align-items:center;justify-content:space-between;
+gap:16px;height:66px;
+}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;letter-spacing:.5px}
+.logo-mark{
+width:36px;height:36px;border-radius:10px;
+background:linear-gradient(135deg,var(--pink),var(--purple));
+display:flex;align-items:center;justify-content:center;
+font-size:17px;color:#fff;font-weight:800;
+box-shadow:0 4px 14px rgba(155,107,255,.4);
+}
+.logo small{display:block;font-size:11px;color:var(--sub);font-weight:400;letter-spacing:1px}
+nav.main-nav{display:flex;gap:4px;flex-wrap:wrap}
+nav.main-nav a{
+padding:8px 14px;border-radius:9px;font-size:14px;color:var(--sub);
+transition:.2s;
+}
+nav.main-nav a:hover,nav.main-nav a.active{
+color:#fff;background:rgba(155,107,255,.18);
+}
+.head-search{
+display:flex;align-items:center;gap:8px;
+background:var(--card);border:1px solid var(--line);
+border-radius:10px;padding:7px 12px;min-width:190px;
+}
+.head-search input{
+background:none;border:none;outline:none;color:var(--txt);font-size:13px;width:100%;
+}
+.head-search span{color:var(--sub);font-size:14px}
+
+/* 首屏 */
+.hero{
+position:relative;
+padding:56px 0 44px;
+background:
+radial-gradient(circle at 12% 18%,rgba(255,111,165,.16),transparent 42%),
+radial-gradient(circle at 88% 10%,rgba(79,214,214,.13),transparent 40%),
+linear-gradient(180deg,#1a1726,#14121c);
+border-bottom:1px solid var(--line);
+overflow:hidden;
+}
+.hero-grid{
+display:grid;grid-template-columns:1.35fr .95fr;gap:40px;align-items:center;
+}
+.hero-tag{
+display:inline-flex;align-items:center;gap:7px;
+font-size:12.5px;color:var(--cyan);
+border:1px solid rgba(79,214,214,.35);
+background:rgba(79,214,214,.08);
+padding:5px 12px;border-radius:999px;margin-bottom:16px;
+}
+.hero h1{
+font-size:34px;line-height:1.35;font-weight:800;letter-spacing:.5px;
+margin-bottom:16px;
+}
+.hero h1 em{
+font-style:normal;
+background:linear-gradient(90deg,var(--pink),var(--purple));
+-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p.lead{color:var(--sub);font-size:15.5px;max-width:620px;margin-bottom:24px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+display:inline-block;padding:11px 24px;border-radius:10px;
+font-size:14.5px;font-weight:600;transition:.22s;border:1px solid transparent;
+}
+.btn-main{
+background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;
+box-shadow:0 6px 20px rgba(155,107,255,.35);
+}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(255,111,165,.4)}
+.btn-ghost{border-color:var(--line);color:var(--txt);background:rgba(255,255,255,.03)}
+.btn-ghost:hover{border-color:var(--purple);color:#fff}
+
+.hero-panel{
+background:linear-gradient(160deg,#262038,#1d1a2b);
+border:1px solid var(--line);border-radius:18px;padding:22px;
+box-shadow:0 18px 40px rgba(0,0,0,.35);
+}
+.hero-panel h3{font-size:15px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.hero-panel h3::before{
+content:"";width:4px;height:15px;border-radius:2px;
+background:linear-gradient(180deg,var(--pink),var(--purple));
+}
+.quick-list{list-style:none;display:grid;gap:9px}
+.quick-list li{
+display:flex;justify-content:space-between;align-items:center;
+background:rgba(255,255,255,.03);border:1px solid var(--line);
+border-radius:10px;padding:10px 13px;font-size:13.5px;color:var(--sub);
+transition:.2s;
+}
+.quick-list li:hover{border-color:var(--purple);color:var(--txt);transform:translateX(3px)}
+.quick-list li span{color:var(--pink);font-size:12px}
+
+/* 统计条 */
+.stat-bar{
+display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+margin-top:34px;
+}
+.stat-item{
+background:rgba(255,255,255,.03);border:1px solid var(--line);
+border-radius:12px;padding:14px 16px;text-align:center;
+}
+.stat-item strong{display:block;font-size:20px;color:var(--cyan);font-weight:800}
+.stat-item span{font-size:12.5px;color:var(--sub)}
+
+/* 通用区块 */
+section.block{padding:52px 0}
+.sec-head{margin-bottom:26px}
+.sec-head h2{
+font-size:24px;font-weight:800;display:flex;align-items:center;gap:10px;
+margin-bottom:8px;
+}
+.sec-head h2::before{
+content:"";width:5px;height:22px;border-radius:3px;
+background:linear-gradient(180deg,var(--pink),var(--purple));
+}
+.sec-head p{color:var(--sub);font-size:14px;max-width:760px}
+
+/* 分类网格 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cat-card{
+background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+padding:20px 18px;transition:.24s;position:relative;overflow:hidden;
+}
+.cat-card::after{
+content:"";position:absolute;inset:0;
+background:linear-gradient(140deg,rgba(255,111,165,.1),transparent 55%);
+opacity:0;transition:.24s;
+}
+.cat-card:hover{transform:translateY(-4px);border-color:var(--purple)}
+.cat-card:hover::after{opacity:1}
+.cat-card .ico{
+width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+font-size:19px;margin-bottom:13px;
+background:rgba(155,107,255,.14);border:1px solid rgba(155,107,255,.28);
+}
+.cat-card h3{font-size:16px;margin-bottom:7px;position:relative}
+.cat-card p{font-size:13px;color:var(--sub);position:relative}
+.cat-card .tags{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;position:relative}
+.cat-card .tags i{
+font-style:normal;font-size:11.5px;color:var(--cyan);
+background:rgba(79,214,214,.09);border:1px solid rgba(79,214,214,.22);
+padding:2px 8px;border-radius:999px;
+}
+
+/* 内容 + 侧栏 */
+.split{display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:start}
+
+/* 文章列表 */
+.article-list{display:grid;gap:16px}
+.article-item{
+background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+padding:20px 22px;transition:.22s;
+}
+.article-item:hover{border-color:rgba(155,107,255,.55);background:#262135}
+.article-item .meta{
+font-size:12px;color:var(--sub);display:flex;gap:14px;flex-wrap:wrap;margin-bottom:9px;
+}
+.article-item .meta b{color:var(--pink);font-weight:600}
+.article-item h3{font-size:17px;margin-bottom:8px}
+.article-item p{font-size:13.8px;color:var(--sub)}
+
+/* 侧栏 */
+.side-card{
+background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+padding:20px;margin-bottom:18px;
+}
+.side-card h3{
+font-size:15.5px;margin-bottom:14px;padding-bottom:10px;
+border-bottom:1px dashed var(--line);
+}
+.rank-list{list-style:none;display:grid;gap:11px}
+.rank-list li{display:flex;gap:11px;font-size:13.5px;color:var(--sub);align-items:flex-start}
+.rank-list li em{
+font-style:normal;flex:0 0 20px;height:20px;border-radius:6px;
+background:rgba(155,107,255,.16);color:var(--purple);
+font-size:11.5px;font-weight:700;display:flex;align-items:center;justify-content:center;
+}
+.rank-list li:nth-child(1) em{background:rgba(255,111,165,.2);color:var(--pink)}
+.rank-list li:nth-child(2) em{background:rgba(79,214,214,.16);color:var(--cyan)}
+.rank-list li span{color:var(--txt)}
+.rank-list li:hover span{color:var(--pink)}
+
+.tag-cloud{display:flex;flex-wrap:wrap;gap:8px}
+.tag-cloud a{
+font-size:12.5px;color:var(--sub);border:1px solid var(--line);
+border-radius:999px;padding:4px 12px;transition:.2s;
+}
+.tag-cloud a:hover{color:#fff;border-color:var(--purple);background:rgba(155,107,255,.15)}
+
+/* 使用指南步骤 */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{
+background:linear-gradient(160deg,#241f34,#1c1928);
+border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+position:relative;
+}
+.step .num{
+font-size:30px;font-weight:800;color:rgba(155,107,255,.35);line-height:1;margin-bottom:12px;
+}
+.step h3{font-size:16px;margin-bottom:8px}
+.step p{font-size:13.4px;color:var(--sub)}
+
+/* 提示区 */
+.notice{
+background:linear-gradient(135deg,rgba(255,111,165,.08),rgba(79,214,214,.06));
+border:1px solid rgba(255,111,165,.28);
+border-radius:var(--radius);padding:22px 24px;
+}
+.notice h3{font-size:16px;margin-bottom:10px;color:var(--pink)}
+.notice ul{list-style:none;display:grid;gap:9px}
+.notice li{
+font-size:13.6px;color:var(--sub);padding-left:18px;position:relative;
+}
+.notice li::before{
+content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;
+background:var(--cyan);
+}
+
+/* FAQ */
+.faq-list{display:grid;gap:12px}
+details.faq{
+background:var(--card);border:1px solid var(--line);border-radius:12px;
+padding:16px 20px;transition:.2s;
+}
+details.faq[open]{border-color:rgba(155,107,255,.5);background:#262135}
+details.faq summary{
+cursor:pointer;font-size:15px;font-weight:600;list-style:none;
+display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{
+content:"+";color:var(--purple);font-size:19px;font-weight:700;flex:0 0 auto;
+}
+details.faq[open] summary::after{content:"−";color:var(--pink)}
+details.faq p{font-size:13.8px;color:var(--sub);margin-top:11px;padding-top:11px;border-top:1px dashed var(--line)}
+
+/* 页脚 */
+footer.site-foot{
+background:#100e18;border-top:1px solid var(--line);padding:44px 0 26px;margin-top:20px;
+}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:28px}
+.foot-brand .logo{margin-bottom:14px}
+.foot-brand p{font-size:13px;color:var(--sub);max-width:300px}
+.foot-col h4{font-size:14px;margin-bottom:14px;color:var(--txt)}
+.foot-col ul{list-style:none;display:grid;gap:9px}
+.foot-col a{font-size:13px;color:var(--sub);transition:.2s}
+.foot-col a:hover{color:var(--pink)}
+.foot-bottom{
+margin-top:32px;padding-top:20px;border-top:1px solid var(--line);
+font-size:12.5px;color:var(--sub);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+
+/* 响应式 */
+@media(max-width:1024px){
+.hero-grid{grid-template-columns:1fr;gap:30px}
+.cat-grid{grid-template-columns:repeat(2,1fr)}
+.split{grid-template-columns:1fr}
+.steps{grid-template-columns:1fr}
+.foot-grid{grid-template-columns:1fr 1fr}
+.stat-bar{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:720px){
+.head-inner{height:auto;padding:12px 0;flex-wrap:wrap}
+nav.main-nav{order:3;width:100%;justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;padding-bottom:4px}
+nav.main-nav a{white-space:nowrap}
+.head-search{flex:1;min-width:140px}
+.hero{padding:38px 0 32px}
+.hero h1{font-size:25px}
+.hero-panel{padding:18px}
+section.block{padding:38px 0}
+.sec-head h2{font-size:20px}
+.cat-grid{grid-template-columns:1fr}
+.foot-grid{grid-template-columns:1fr}
+.stat-bar{grid-template-columns:repeat(2,1fr)}
+.article-item{padding:17px 16px}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+本站为 <b>二次元文化资料索引与科普页面</b>，仅整理公开可查的分类概念与检索思路，不提供任何受版权保护内容的存储或传播服务。
+</div>
+
+<header class="site-head">
+<div class="wrap head-inner">
+<a href="#" class="logo">
+<span class="logo-mark">乌</span>
+<span>ACG资料索引<small>无翼乌 · 二次元目录站</small></span>
+</a>
+<nav class="main-nav">
+<a href="#concept" class="active">概念说明</a>
+<a href="#category">分类体系</a>
+<a href="#guide">检索方法</a>
+<a href="#notice">使用须知</a>
+<a href="#faq">常见问题</a>
+</nav>
+<div class="head-search">
+<span>🔍</span>
+<input type="text" placeholder="搜索标签 / 画师 / 作品名" aria-label="站内搜索">
+</div>
+</div>
+</header>
+
+<main>
+
+<!-- 首屏 -->
+<section class="hero">
+<div class="wrap">
+<div class="hero-grid">
+<div>
+<span class="hero-tag">◆ 同人志 · 番剧 · 漫画 资料整理</span>
+<h1>ACG里番本子库无翼乌<br><em>二次元作品分类与检索思路指南</em></h1>
+<p class="lead">
+“ACG里番本子库无翼乌”这一说法，通常出现在二次元爱好者寻找同人志、成人向漫画与番剧相关资料的场景中。
+本页面并不存储或分发任何作品文件，而是把这类资料库常见的分类逻辑、标签体系、检索入口和辨别方法整理清楚，
+帮助访客理解“本子库”“里番”“同人志”等词的实际含义，并学会判断一个索引站是否可靠、内容是否合规。
+</p>
+<div class="hero-btns">
+<a href="#concept" class="btn btn-main">了解基本概念</a>
+<a href="#guide" class="btn btn-ghost">查看检索方法</a>
+</div>
+</div>
+<aside class="hero-panel">
+<h3>快速导航</h3>
+<ul class="quick-list">
+<li>什么是同人志与“本子” <span>→</span></li>
+<li>里番与表番的区别 <span>→</span></li>
+<li>常见标签与分类维度 <span>→</span></li>
+<li>画师与社团的识别方式 <span>→</span></li>
+<li>如何判断索引站是否可靠 <span>→</span></li>
+<li>内容分级与浏览注意事项 <span>→</span></li>
+</ul>
+</aside>
+</div>
+
+<div class="stat-bar">
+<div class="stat-item"><strong>4 大类</strong><span>漫画 / 番剧 / 同人志 / 画集</span></div>
+<div class="stat-item"><strong>6 维度</strong><span>题材 · 画风 · 篇幅 · 语言 · 年代 · 分级</span></div>
+<div class="stat-item"><strong>3 步法</strong><span>确认来源 · 核对标签 · 判断合规</span></div>
+<div class="stat-item"><strong>0 存储</strong><span>本站不托管任何作品文件</span></div>
+</div>
+</div>
+</section>
+
+<!-- 概念说明 -->
+<section class="block" id="concept">
+<div class="wrap">
+<div class="sec-head">
+<h2>这些词到底指什么</h2>
+<p>很多访客是带着一个模糊的说法来的，先把名词拆开，后面的检索才不会走偏。</p>
+</div>
+<div class="split">
+<div>
+<div class="article-list">
+
+<article class="article-item">
+<div class="meta"><b>基础概念</b><span>ACG</span><span>阅读约 3 分钟</span></div>
+<h3>ACG 是动画、漫画、游戏的合称</h3>
+<p>ACG 取自 Anime（动画）、Comic（漫画）、Game（游戏）三个英文词的首字母，后来常扩展为 ACGN，加入 Novel（轻小说）。它描述的是一个内容圈层，而不是某一种具体作品类型。理解这一点很重要：所谓“ACG 资料库”，本质上是对动画、漫画、游戏及其衍生创作做分类整理的目录，而不是单一类型的资源站。</p>
+</article>
+
+<article class="article-item">
+<div class="meta"><b>概念辨析</b><span>同人志</span><span>阅读约 4 分钟</span></div>
+<h3>“本子”是同人志的口语化说法</h3>
+<p>在中文二次元语境里，“本子”多数情况下指同人志，即创作者或社团自行编辑、自行印刷发行的非官方出版物。它可能基于已有作品进行二次创作，也可能是原创内容。同人志的形态包括漫画本、插画集、小说本、设定集等，篇幅从十几页到上百页不等。由于属于自出版，其印刷量、流通渠道和获取难度差异很大，这也是它常被单独归类的原因。</p>
+</article>
+
+<article class="article-item">
+<div class="meta"><b>概念辨析</b><span>里番</span><span>阅读约 3 分钟</span></div>
+<h3>里番与表番：一个关于播出渠道的说法</h3>
+<p>“表番”一般指在电视等公开渠道正常播出的动画，“里番”则指不通过常规电视渠道、面向成年观众的动画作品。这个区分来源于日本的播出与发行体系，核心差异在于渠道和受众定位，而不是画质或制作水准。需要明确的是，这类内容在多数国家和地区都受到年龄限制与法律约束，浏览前应确认自己所在地的相关规定。</p>
+</article>
+
+<article class="article-item">
+<div class="meta"><b>名称说明</b><span>无翼乌</span><span>阅读约 2 分钟</span></div>
+<h3>“无翼乌”更像是一个站点代号</h3>
+<p>“无翼乌”并不是二次元领域的通用术语，它更接近某个具体站点、频道或账号的自称，这类名称往往带有个人化色彩，且可能随时间更换域名或停止运营。因此，把它当作一个固定品牌去理解并不准确。更稳妥的做法是：把它视为一个检索线索，重点看它背后提供的是分类目录、讨论社区，还是文件下载，这三者的性质完全不同。</p>
+</article>
+
+</div>
+</div>
+
+<aside>
+<div class="side-card">
+<h3>相关概念速查</h3>
+<ul class="rank-list">
+<li><em>1</em><span>同人志：自出版的非官方刊物</span></li>
+<li><em>2</em><span>社团：同人志的创作与发行单位</span></li>
+<li><em>3</em><span>画师：以个人名义发表插画与漫画</span></li>
+<li><em>4</em><span>标签：用于描述题材与内容特征</span></li>
+<li><em>5</em><span>分级：按年龄适用性划分内容</span></li>
+<li><em>6</em><span>扫图／汉化：民间传播环节</span></li>
+</ul>
+</div>
+<div class="side-card">
+<h3>常见标签方向</h3>
+<div class="tag-cloud">
+<a href="#">日常</a>
+<a href="#">奇幻</a>
+<a href="#">科幻</a>
+<a href="#">校园</a>
+<a href="#">恋爱</a>
+<a href="#">悬疑</a>
+<a href="#">治愈</a>
+<a href="#">机战</a>
+<a href="#">历史</a>
+<a href="#">音乐</a>
+<a href="#">运动</a>
+<a href="#">短篇</a>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</section>
+
+<!-- 分类体系 -->
+<section class="block" id="category" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<div class="wrap">
+<div class="sec-head">
+<h2>资料库通常怎么分类</h2>
+<p>一个结构清晰的索引，一般会从内容形态、题材标签、创作者和年代四个方向同时建立入口，而不是只堆一个总列表。</p>
+</div>
+<div class="cat-grid">
+
+<div class="cat-card">
+<div class="ico">📖</div>
+<h3>漫画与同人志</h3>
+<p>按篇幅分为短篇、连载、单行本；按来源分为原创与二次创作，是同人志库中最主要的内容形态。</p>
+<div class="tags"><i>短篇</i><i>连载</i><i>单行本</i><i>二次创作</i></div>
+</div>
+
+<div class="cat-card">
+<div class="ico">🎬</div>
+<h3>动画与番剧</h3>
+<p>按播出渠道区分表番与里番，按集数分为季番、半年番、长篇，也常按制作公司与年份归档。</p>
+<div class="tags"><i>季番</i><i>剧场版</i><i>OVA</i><i>年份归档</i></div>
+</div>
+
+<div class="cat-card">
+<div class="ico">🎨</div>
+<h3>画集与插画</h3>
+<p>以单幅插画、设定图、草稿集为主，通常按画师个人或社团名义发布，视觉风格是主要检索维度。</p>
+<div class="tags"><i>画师</i><i>设定集</i><i>草稿</i><i>原创</i></div>
+</div>
+
+<div class="cat-card">
+<div class="ico">🎮</div>
+<h3>游戏与衍生</h3>
+<p>包括同人游戏、游戏设定资料、角色立绘与剧情文本，常与动画、漫画形成交叉引用关系。</p>
+<div class="tags"><i>同人游戏</i><i>设定资料</i><i>立绘</i><i>剧情</i></div>
+</div>
+
+<div class="cat-card">
+<div class="ico">🏷️</div>
+<h3>题材标签</h3>
+<p>用简短词汇描述内容方向，是跨形态检索最有效的入口，也是不同站点差异最大的部分。</p>
+<div class="tags"><i>题材</i><i>氛围</i><i>关系</i><i>场景</i></div>
+</div>
+
+<div class="cat-card">
+<div class="ico">👤</div>
+<h3>创作者索引</h3>
+<p>按画师、作者、社团、制作公司建立条目，适合已经知道名字、想找同系列作品的访客。</p>
+<div class="tags"><i>画师</i><i>社团</i><i>作者</i><i>制作公司</i></div>
+</div>
+
+<div class="cat-card">
+<div class="ico">🌐</div>
+<h3>语言与版本</h3>
+<p>区分原版、汉化、英译等版本，也标注翻译质量与排版完整度，影响实际阅读体验。</p>
+<div class="tags"><i>原版</i><i>汉化</i><i>多语种</i><i>版本差异</i></div>
+</div>
+
+<div class="cat-card">
+<div class="ico">⏳</div>
+<h3>年代与更新</h3>
+<p>按发布年份或最近更新时间排序，方便追踪新作，也便于回溯早期经典作品。</p>
+<div class="tags"><i>最新</i><i>本月</i><i>经典</i><i>归档</i></div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- 检索方法 -->
+<section class="block" id="guide">
+<div class="wrap">
+<div class="sec-head">
+<h2>三步判断一个索引站是否值得用</h2>
+<p>面对名称模糊、域名频繁更换的站点，先做判断再决定是否继续浏览，比直接点进去更省时间也更安全。</p>
+</div>
+<div class="steps">
+
+<div class="step">
+<div class="num">01</div>
+<h3>先看它提供的是什么</h3>
+<p>只提供文字目录、标签和外部链接的，属于索引站；直接提供文件下载或在线播放的，性质完全不同，风险也更高。前者信息价值更大，后者往往伴随版权与安全问题。</p>
+</div>
+
+<div class="step">
+<div class="num">02</div>
+<h3>再看分类是否讲逻辑</h3>
+<p>可靠的目录会有稳定一致的分类维度，比如同时支持按题材、按作者、按年份筛选。如果所有条目都挤在一个长列表里，没有任何筛选条件，说明它只是临时拼凑，检索效率很低。</p>
+</div>
+
+<div class="step">
+<div class="num">03</div>
+<h3>最后看页面是否干净</h3>
+<p>大量弹窗、强制跳转、伪装成播放按钮的广告，是低质量站点的典型特征。干净、加载快、没有强制跳转的页面，通常维护者更在意长期可用性，而不是短期流量。</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- 使用须知 -->
+<section class="block" id="notice" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<div class="wrap">
+<div class="sec-head">
+<h2>浏览这类内容前需要知道的事</h2>
+<p>以下不是免责声明式的套话，而是实际会影响你体验和风险的几个要点。</p>
+</div>
+<div class="notice">
+<h3>请务必留意</h3>
+<ul>
+<li>里番、成人向同人志等类别在多数国家和地区都有明确的年龄限制，未满法定年龄不应浏览相关内容。</li>
+<li>同人志属于二次创作，其版权状态较为复杂，下载、转载、二次分发可能涉及侵权，请以当地法律为准。</li>
+<li>以“本子库”“资源库”为名的站点中，相当一部分并不持有内容版权，也不对文件安全性负责。</li>
+<li>域名频繁更换、要求安装额外软件或输入账号密码的站点，应直接关闭，不要继续操作。</li>
+<li>任何要求付费解锁、扫码转账或提供个人信息的页面，都不属于正常的资料索引服务。</li>
+<li>如果只是想了解二次元文化，正规出版社的漫画、官方流媒体平台和公开的画师主页是更可靠的入口。</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="block" id="faq">
+<div class="wrap">
+<div class="sec-head">
+<h2>常见问题</h2>
+<p>整理自访客在理解这一关键词时最常提出的疑问。</p>
+</div>
+<div class="split">
+<div class="faq-list">
+
+<details class="faq" open>
+<summary>“ACG里番本子库无翼乌”是一个官方站点的名字吗？</summary>
+<p>不是。其中只有 ACG、里番、本子库属于圈内通用说法，“无翼乌”更可能是某个具体站点的自称或代号，并非行业标准名称，也不存在统一的官方定义。遇到这类名称时，建议把它当作一个检索线索，而不是一个可信品牌。</p>
+</details>
+
+<details class="faq">
+<summary>同人志和商业漫画有什么区别？</summary>
+<p>主要区别在发行方式。商业漫画由出版社策划、编辑、印刷并通过书店等渠道销售；同人志由创作者或社团自行出资制作和发行，通常印量较小，渠道也更集中。内容上两者都可能有原创或改编作品，不能简单用质量高低来区分。</p>
+</details>
+
+<details class="faq">
+<summary>里番和表番的判断标准是什么？</summary>
+<p>核心是播出与发行渠道，而不是画面风格。通过常规电视渠道公开播出的通常称为表番，不经过该渠道、面向特定成年受众发行的则被称为里番。不同地区的界定标准并不完全一致，具体以当地法规为准。</p>
+</details>
+
+<details class="faq">
+<summary>为什么这类站点的域名经常变化？</summary>
+<p>常见原因包括版权投诉、服务器迁移、运营者主动更换等。域名不稳定本身就是一个信号：它意味着站点的长期可用性没有保障，内容也可能随时失效或被替换，不宜作为长期依赖的信息来源。</p>
+</details>
+
+<details class="faq">
+<summary>想系统了解二次元文化，应该从哪里入手？</summary>
+<p>可以从公开渠道入手：正规出版的漫画单行本、官方授权的流媒体平台、动画制作公司的公开资料、画师的个人主页与画集，以及百科类站点的条目。这些来源信息相对准确，也不涉及版权和安全风险，适合作为长期的知识基础。</p>
+</details>
+
+<details class="faq">
+<summary>看到带有“库”“大全”字样的站点，可以直接使用吗？</summary>
+<p>建议先判断它提供的是索引还是文件。索引类页面通常只列出名称、标签和外部链接，风险相对可控；如果页面直接提供下载或在线播放，且伴随大量弹窗和跳转，就应当谨慎对待，不要轻易下载文件或输入任何个人信息。</p>
+</details>
+
+</div>
+
+<aside>
+<div class="side-card">
+<h3>推荐的信息来源类型</h3>
+<ul class="rank-list">
+<li><em>1</em><span>正规出版社的漫画与画集</span></li>
+<li><em>2</em><span>官方授权的流媒体平台</span></li>
+<li><em>3</em><span>制作公司与画师官方主页</span></li>
+<li><em>4</em><span>公开的百科与资料条目</span></li>
+<li><em>5</em><span>线下漫展与同人展会信息</span></li>
+</ul>
+</div>
+<div class="side-card">
+<h3>快速自查清单</h3>
+<ul class="rank-list">
+<li><em>✓</em><span>是否确认了所在地区规定</span></li>
+<li><em>✓</em><span>页面是否强制跳转或弹窗</span></li>
+<li><em>✓</em><span>是否要求下载额外软件</span></li>
+<li><em>✓</em><span>是否索取账号或支付信息</span></li>
+</ul>
+</div>
+</aside>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+<div class="wrap">
+<div class="foot-grid">
+<div class="foot-brand">
+<a href="#" class="logo">
+<span class="logo-mark">乌</span>
+<span>ACG资料索引<small>无翼乌 · 二次元目录站</small></span>
+</a>
+<p>一个面向二次元爱好者的概念科普与分类索引页面，只整理公开可查的分类逻辑与检索思路，不存储、不传播任何作品文件。</p>
+</div>
+<div class="foot-col">
+<h4>概念说明</h4>
+<ul>
+<li><a href="#concept">ACG 是什么</a></li>
+<li><a href="#concept">同人志与社团</a></li>
+<li><a href="#concept">里番与表番</a></li>
+<li><a href="#concept">名称代号说明</a></li>
+</ul>
+</div>
+<div class="foot-col">
+<h4>分类体系</h4>
+<ul>
+<li><a href="#category">漫画与同人志</a></li>
+<li><a href="#category">动画与番剧</a></li>
+<li><a href="#category">画集与插画</a></li>
+<li><a href="#category">题材标签</a></li>
+</ul>
+</div>
+<div class="foot-col">
+<h4>使用帮助</h4>
+<ul>
+<li><a href="#guide">检索三步法</a></li>
+<li><a href="#notice">浏览注意事项</a></li>
+<li><a href="#faq">常见问题</a></li>
+<li><a href="#faq">信息来源建议</a></li>
+</ul>
+</div>
+</div>
+<div class="foot-bottom">
+<span>© 2024 ACG资料索引 · 内容仅用于概念科普与分类说明</span>
+<span>本站不提供任何受版权保护内容的存储或下载服务，请遵守所在地法律法规。</span>
+</div>
+</div>
+</footer>
+
+<script>
+(function(){
+  var links = document.querySelectorAll('nav.main-nav a');
+  var sections = [];
+  links.forEach(function(a){
+    var id = a.getAttribute('href');
+    if(id && id.charAt(0) === '#'){
+      var el = document.querySelector(id);
+      if(el) sections.push({link:a, el:el});
+    }
+  });
+  if(!sections.length) return;
+  function onScroll(){
+    var pos = window.scrollY + 120;
+    var current = sections[0];
+    sections.forEach(function(s){
+      if(s.el.offsetTop <= pos) current = s;
+    });
+    links.forEach(function(a){ a.classList.remove('active'); });
+    current.link.classList.add('active');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+
+</body>
+  </html>
